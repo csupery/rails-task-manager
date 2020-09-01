@@ -1,0 +1,23 @@
+<%= form_for(@task) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Title", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <%= f.label :details, "Details", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :details, class: "form-control" %>
+    </div>
+    <% unless f.object.new_record? %>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :completed %> Completed
+        </label>
+      </div>
+    <% end %>
+    <%= f.submit class: 'btn btn-primary col-md-8'%>
+  </div>
+  <%= link_to tasks_path do %>
+    <i class="fa fa-history"></i> Back to list
+  <% end %>
+<% end %>
